@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-fs.writeFile('index.html', 'Contenido nuevo', (err) => {
+fs.unlink('main.html', (err) => {
   if (err) throw err
-  console.log('Contenido reemplazado satisfactoriamente')
+  console.log('Archivo eliminado')
 })
