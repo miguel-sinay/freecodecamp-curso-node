@@ -1,5 +1,12 @@
-const os = require('os')
-console.log(os.type())
-console.log(os.homedir())
-console.log(`Este sistema operativo ha estado encendido por ${os.uptime()} s`)
-console.log(os.userInfo())
+function mostrarTema(tema) {
+  console.log(`Extoy aprendiendo ${tema}`)
+}
+
+function sumar(a, b) {
+  console.log(a + b)
+}
+
+setTimeout(mostrarTema, 2000, 'Node.js')
+setTimeout(sumar, 3000, 5, 6);
+
+console.log('Proceso raíz completado ;-)')
