@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-fs.rename('index.html', 'main.html', (err) => {
+fs.appendFile('index.html', '<p>Hola</p>', (err) => {
   if (err) throw err
-  console.log('Nombre cambiado exitosamente')
+  console.log('Archivo actualizado')
 })
