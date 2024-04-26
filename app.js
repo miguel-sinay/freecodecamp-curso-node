@@ -1,6 +1,6 @@
 const fs = require('fs')
 
-fs.appendFile('index.html', '<p>Hola</p>', (err) => {
+fs.writeFile('index.html', 'Contenido nuevo', (err) => {
   if (err) throw err
-  console.log('Archivo actualizado')
+  console.log('Contenido reemplazado satisfactoriamente')
 })
