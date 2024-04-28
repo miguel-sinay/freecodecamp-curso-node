@@ -27,6 +27,10 @@ miPedidoDePizza
   .then((mensajeDeConfirmacion) => {
     console.log(mensajeDeConfirmacion)
   })
-  .then(null, (mensajeDeError) => {
+  .catch((mensajeDeError) => {
     console.log(mensajeDeError)
   })
+  // Nótese que aquí se practica el Encadenamiento de Métodos (Method Chaining)
+
+  // Y si se quiere compactar aún más, aprovechar los métodos manejadores de arriba
+  miPedidoDePizza.then(manejarPedido).catch(rechazarPedido)
