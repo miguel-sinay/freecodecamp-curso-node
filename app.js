@@ -1,21 +1,32 @@
-const promesaCumplida = true
+const estatusPedido = () => {
+  return Math.random() < 0.8
+}
 
-const miPromesa = new Promise((resolve, reject) => {
+const miPedidoDePizza = new Promise((resolve, reject) => {
   setTimeout(() => {
-    if (promesaCumplida) {
-      resolve('¡Promesa cumplida!')
+    if (estatusPedido()) {
+      resolve('¡Pedido exitoso! Su pizza está en camino')
     } else {
-      reject('Promesa rechazada...')
+      reject('Ocurrió un error. Por favor intente nuevamente')
     }
-  }, 3000)
+  }, 3000);
 })
 
-const manejarPromesaCumplida = (valor) => {
-  console.log(valor)
+const manejarPedido = (mensajeDeConfirmacion) => {
+  console.log(mensajeDeConfirmacion)
 }
 
-const manejarPromesaRechazada = (razonRechazo) => {
-  console.log(razonRechazo)
+const rechazarPedido = (mensajeDeError) => {
+  console.log(mensajeDeError)
 }
 
-miPromesa.then(manejarPromesaCumplida, manejarPromesaRechazada)
+miPedidoDePizza.then(manejarPedido, rechazarPedido)
+
+// Alternativa más compacta
+miPedidoDePizza
+  .then((mensajeDeConfirmacion) => {
+    console.log(mensajeDeConfirmacion)
+  })
+  .then(null, (mensajeDeError) => {
+    console.log(mensajeDeError)
+  })
