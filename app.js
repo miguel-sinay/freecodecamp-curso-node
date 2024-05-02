@@ -1,50 +1,12 @@
-function ordenarProducto(producto) {
-  return new Promise((resolve, reject) => {
-    console.log(`Ordenando: ${producto} de freeCodeCamp`)
-    setTimeout(() => {
-      if (producto === 'taza') {
-        resolve('Ordenando una taza con el logo de freeCodeCamp...')
-      } else {
-        reject('Este producto no está disponible actualmente.')
-      }
-    }, 2000);
-  })
-}
+const http = require('http')
 
-function procesarPedido(respuesta) {
-  return new Promise(resolve => {
-    console.log('Procesando respuesta...')
-    console.log(`La respuesta fue: "${respuesta}"`)
-    setTimeout(() => {
-      resolve('Gracias por tu compra. Disfruta tu producto')
-    }, 4000);
-  })
-}
+const servidor = http.createServer((req, res) => {
+  console.log('Solicitud nueva')
+  res.end('Hola, mundo')
+})
 
-// Chaining Promises
-// ordenarProducto('taza')
-//   .then(respuesta => {
-//     console.log('Respuesta recibida')
-//     console.log(respuesta)
-//     return procesarPedido(respuesta)
-//   })
-//   .then(respuestaProcesada => {
-//     console.log(respuestaProcesada)
-//   })
-//   .catch(error => {
-//     console.log(error)
-//   })
-
-async function realizarPedido(producto) {
-  try {
-    const respuesta = await ordenarProducto(producto)
-    console.log('Respuesta recibida')
-    console.log(respuesta)
-    const respuestaProcesada = await procesarPedido(respuesta)
-    console.log(respuestaProcesada)
-  } catch (error) {
-    console.error(error)
-  }
-}
-
-realizarPedido('taza')
+const puerto = 3000
+servidor.listen(puerto, () => {
+  console.log('[INFO] Servidor listo a la espera de conexiones')
+  console.log(`El servidor está escuchando en el puerto http://localhost:${puerto}...`)
+})
