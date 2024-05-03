@@ -1,8 +1,11 @@
 const http = require('http')
 
 const servidor = http.createServer((req, res) => {
-  console.log('Solicitud nueva')
-  res.end('Hola, mundo')
+  console.log('===> req (solicitud)')
+  console.log(req.url)
+  console.log(req.method)
+  console.log(req.headers)
+  res.end('Hola mundo')
 })
 
 const puerto = 3000
